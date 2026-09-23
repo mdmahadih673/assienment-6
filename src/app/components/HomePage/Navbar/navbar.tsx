@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const NavbarPage = () => {
     return (
-        <nav className="w-full bg-black">
+        <nav className="w-full sticky top-0 z-50 bg-black">
             <div className="navbar container mx-auto px-4">
                 <div className="navbar-start">
                     <div className="dropdown">
