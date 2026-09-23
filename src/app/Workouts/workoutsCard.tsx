@@ -10,7 +10,7 @@ export interface WorkoutsCardProps {
 export default function WorkoutsCard({ workout }: WorkoutsCardProps) {
 
     return (
-        <Link href={`/workouts/${workout.id}`}>
+        <Link href={`/Workouts/${workout.id}`}>
 
             <div className="overflow-hidden cursor-pointer rounded-2xl bg-neutral-900">
                 <div className="relative h-48 w-full">
