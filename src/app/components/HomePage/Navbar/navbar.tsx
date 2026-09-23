@@ -54,7 +54,7 @@ const NavbarPage = () => {
                             0
                         </span>
                     </Link>
-                    <Link href={"/MyPlan"} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
+                    <Link href={"/Saved"} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
                         Saved
                         <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-700 text-xs font-bold text-white">
                             0

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyPlanPage = () => {
+const SavedPage = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const MyPlanPage = () => {
     );
 };
 
-export default MyPlanPage;
+export default SavedPage;
