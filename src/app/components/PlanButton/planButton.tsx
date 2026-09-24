@@ -1,32 +1,40 @@
 'use client';
 
 import { IExercise } from '@/type/type';
-import { CalendarPlus } from 'lucide-react';
 import React, { useContext } from 'react';
-import { Workoutcontext } from '@/context/workoutProvidor';
+import { WorkoutContext } from '@/context/workoutProvidor';
+import { Bounce, toast } from 'react-toastify';
 
 const PlanButton = ({ workout }: { workout: IExercise }) => {
-    const { setWorkout } = useContext(Workoutcontext);
+    const { setPlanWorkout, planWorkouts } = useContext(WorkoutContext);
+    const alreadyAdded = planWorkouts.some((item) => item.id === workout.id);
 
     const handleWorkout = () => {
-        setWorkout((workouts) => {
-            if (workouts.some((item) => item.id === workout.id)) {
-                return workouts;
-            }
+        if (alreadyAdded) return;
 
-            return [...workouts, workout];
+        setPlanWorkout((prev) => [...prev, workout]);
+        toast.success(`Successfully added ${workout.name}`, {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
         });
-    };
-
+    }
     return (
         <div>
             <button
                 type="button"
-                onClick={() => handleWorkout()}
-                className="btn gap-2 rounded-md border-none bg-lime-400 font-bold text-black hover:bg-lime-500"
+                onClick={handleWorkout}
+                disabled={alreadyAdded}
+                aria-pressed={alreadyAdded}
+                className={`btn gap-2 rounded-md  font-bold ${alreadyAdded ? 'bg-gray-600 text-gray-200 cursor-not-allowed' : 'bg-transparent text-white hover:border-lime-500'}`}
             >
-                <CalendarPlus className="h-4 w-4" />
-                Add to today&apos;s plan
+                {alreadyAdded ? 'Added to plan' : "Add to today's plan"}
             </button>
         </div>
     );

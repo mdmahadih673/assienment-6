@@ -5,16 +5,16 @@ import React, { createContext, ReactNode, useState } from 'react';
 
 
 export interface IWorkoutContext {
-    workouts: IExercise[]
-    setWorkout: React.Dispatch<React.SetStateAction<IExercise[]>>
+    planWorkouts: IExercise[]
+    setPlanWorkout: React.Dispatch<React.SetStateAction<IExercise[]>>
     savedWorkouts: IExercise[]
     setSavedWorkouts: React.Dispatch<React.SetStateAction<IExercise[]>>
 }
 
 
-export const Workoutcontext = createContext<IWorkoutContext>({
-    workouts: [],
-    setWorkout: () => { },
+export const WorkoutContext = createContext<IWorkoutContext>({
+    planWorkouts: [],
+    setPlanWorkout: () => { },
     savedWorkouts: [],
     setSavedWorkouts: () => { },
 });
@@ -22,18 +22,18 @@ export const Workoutcontext = createContext<IWorkoutContext>({
 
 const WorkoutProvidor = ({ children }: { children: ReactNode }) => {
 
-    const [workouts, setWorkout] = useState<IExercise[]>([])
+    const [planWorkouts, setPlanWorkout] = useState<IExercise[]>([])
     const [savedWorkouts, setSavedWorkouts] = useState<IExercise[]>([])
 
     const shareData = {
-        workouts,
-        setWorkout,
+        planWorkouts,
+        setPlanWorkout,
         savedWorkouts,
         setSavedWorkouts,
     }
 
 
-    return <Workoutcontext.Provider value={shareData}> {children}  </Workoutcontext.Provider>
+    return <WorkoutContext.Provider value={shareData}> {children}  </WorkoutContext.Provider>
 };
 
 export default WorkoutProvidor; 

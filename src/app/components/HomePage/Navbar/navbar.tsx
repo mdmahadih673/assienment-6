@@ -31,7 +31,7 @@ const NavbarPage = () => {
                         <li>
                             <Link
                                 href={"/Workouts"}
-                                className="rounded-full bg-lime-500/20 px-4 py-1.5 font-semibold text-lime-400 hover:bg-lime-500/20"
+                                className="px-4 py-1.5 text-white hover:bg-lime-300  hover:text-black  "
                             >
                                 Workouts
                             </Link>
@@ -39,7 +39,7 @@ const NavbarPage = () => {
                         <li>
                             <Link
                                 href={"/MyPlan"}
-                                className="px-4 py-1.5 text-gray-400 hover:bg-transparent hover:text-gray-200"
+                                className="px-4 py-1.5 text-white hover:bg-lime-300  hover:text-black  "
                             >
                                 My Plan
                             </Link>
@@ -54,7 +54,7 @@ const NavbarPage = () => {
                             0
                         </span>
                     </Link>
-                    <Link href={"/Saved"} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
+                    <Link href={"/MyPlan"} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
                         Saved
                         <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-700 text-xs font-bold text-white">
                             0

@@ -1,7 +1,6 @@
 import { IExercise } from '@/type/type';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Bookmark } from 'lucide-react';
 import Link from 'next/link';
 import PlanButton from '@/app/components/PlanButton/planButton';
 import SaveButton from '@/app/components/SaveButton/saveButton';
@@ -17,7 +16,7 @@ const getWorkout = async (id: string): Promise<IExercise> => {
 }
 
 const infoRow = (label: string, value: string | number) => (
-    <div className="flex items-center justify-between px-4 py-3 text-sm even:bg-white/[0.03]">
+    <div className="flex items-center justify-between px-4 py-3 text-sm even:bg-white/3">
         <span className="text-xs font-bold tracking-widest text-gray-400">
             {label.toUpperCase()}
         </span>

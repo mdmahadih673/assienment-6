@@ -1,31 +1,42 @@
 'use client';
 
-import { Bookmark, BookmarkCheck } from 'lucide-react';
-import { useContext } from 'react';
 import { IExercise } from '@/type/type';
-import { Workoutcontext } from '@/context/workoutProvidor';
+import React, { useContext } from 'react';
+import { WorkoutContext } from '@/context/workoutProvidor';
+import { Bounce, toast } from 'react-toastify';
 
 const SaveButton = ({ workout }: { workout: IExercise }) => {
-    const { savedWorkouts, setSavedWorkouts } = useContext(Workoutcontext);
-    const isSaved = savedWorkouts.some((item) => item.id === workout.id);
+    const { setSavedWorkouts, savedWorkouts } = useContext(WorkoutContext);
+    const alreadySaved = savedWorkouts.some((item) => item.id === workout.id);
 
-    const toggleSaved = () => {
-        setSavedWorkouts((current) => (
-            current.some((item) => item.id === workout.id)
-                ? current.filter((item) => item.id !== workout.id)
-                : [...current, workout]
-        ));
-    };
+    const handleWorkout = () => {
+        if (alreadySaved) return;
 
+        setSavedWorkouts((prev) => [...prev, workout]);
+        toast.success(`Successfully saved ${workout.name}`, {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        });
+    }
     return (
-        <button
-            type="button"
-            onClick={toggleSaved}
-            className="btn gap-2 rounded-md border border-white/20 bg-transparent font-bold text-white hover:bg-white/10"
-        >
-            {isSaved ? <BookmarkCheck className="h-4 w-4 text-lime-400" /> : <Bookmark className="h-4 w-4" />}
-            {isSaved ? 'Saved' : 'Save for later'}
-        </button>
+        <div>
+            <button
+                type="button"
+                onClick={handleWorkout}
+                disabled={alreadySaved}
+                className={`btn gap-2 rounded-md font-bold ${alreadySaved ? 'bg-gray-600 text-gray-200 cursor-not-allowed' : 'bg-transparent text-white hover:border-lime-500'}`}
+            >
+                
+                {alreadySaved ? 'Saved' : 'Save'}
+            </button>
+        </div>
     );
 };
 
