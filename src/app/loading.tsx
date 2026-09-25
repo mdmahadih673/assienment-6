@@ -25,7 +25,7 @@ const SkeletonCard = () => {
 const HomeSkeleton = () => {
     return (
         <div>
-            {/* Banner skeleton */}
+            
             <div className="container mx-auto px-4">
                 <div className="rounded-2xl bg-neutral-900 px-8 py-16 sm:px-12 lg:px-16">
                     <div className="flex flex-col items-center gap-10 lg:flex-row lg:justify-between">
@@ -42,7 +42,7 @@ const HomeSkeleton = () => {
                 </div>
             </div>
 
-            {/* Library skeleton */}
+            
             <div className="container mx-auto px-4">
                 <div className="my-14 flex flex-col items-center text-center">
                     <div className="h-3 w-16 animate-pulse rounded bg-neutral-800" />

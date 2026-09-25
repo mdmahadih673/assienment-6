@@ -20,7 +20,6 @@ const MyPlanClient = () => {
     const [sortBy, setSortBy] = useState<"duration" | "caloriesBurned" | "rating">("duration");
 
 
-    // Remove from Plan
     const handleRemovePlanWorkout = (workoutId: number): IExercise => {
 
         const removedWorkout = planWorkouts.find(
@@ -47,7 +46,6 @@ const MyPlanClient = () => {
     };
 
 
-    // Remove from Saved
     const handleRemoveSavedWorkout = (workoutId: number) => {
 
         setSavedWorkouts((prev) =>
@@ -102,12 +100,10 @@ const MyPlanClient = () => {
     return (
         <>
 
-            {/* Metrics */}
             <div className="rounded-2xl border border-[#272b32] bg-[#13161c] px-5 py-7 sm:px-8">
 
                 <div className="grid grid-cols-3">
 
-                    {/* Exercises */}
                     <div className="border-r border-[#242830] px-3 sm:px-5">
 
                         <p className="text-xs text-gray-400">
@@ -121,7 +117,6 @@ const MyPlanClient = () => {
                     </div>
 
 
-                    {/* Minutes */}
                     <div className="border-r border-[#242830] px-3 sm:px-5">
 
                         <p className="text-xs text-gray-400">
@@ -135,7 +130,6 @@ const MyPlanClient = () => {
                     </div>
 
 
-                    {/* Calories */}
                     <div className="px-3 sm:px-5">
 
                         <p className="text-xs text-gray-400">
@@ -155,7 +149,6 @@ const MyPlanClient = () => {
 
 
 
-            {/* Tabs + Workout Lists */}
             <div className="relative mt-8">
                 <div className="tabs tabs-border">
                     <PlanPage
