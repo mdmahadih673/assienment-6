@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import logo from '@/assets/logo.png'
 import Image from 'next/image';
+import PlanSavedLinks from './PlanSavedLinks';
+import NavLinks from './NavLinks';
 
 const NavbarPage = () => {
     return (
@@ -19,47 +21,22 @@ const NavbarPage = () => {
                         </ul>
                     </div>
                     <Link href="/" className="flex items-center gap-2">
-                        <Image src={logo} alt="FitLog" width={28} height={28} priority />
-                        <span className="text-xl font-extrabold tracking-tight text-white">
+                        <Image
+                            
+                            src={logo}
+                            alt="FitLog"
+                            width={26}
+                            height={26}
+                            priority />
+                        <span className="text-xl font-extrabold tracking-tight  text-white">
                             FITLOG
                         </span>
                     </Link>
                 </div>
 
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal gap-1 px-1">
-                        <li>
-                            <Link
-                                href={"/Workouts"}
-                                className="px-4 py-1.5 text-white hover:bg-lime-300  hover:text-black  "
-                            >
-                                Workouts
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href={"/MyPlan"}
-                                className="px-4 py-1.5 text-white hover:bg-lime-300  hover:text-black  "
-                            >
-                                My Plan
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="navbar-end gap-5">
-                    <Link href={"/MyPlan"} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
-                        Plan
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-lime-500 text-xs font-bold text-black">
-                            0
-                        </span>
-                    </Link>
-                    <Link href={"/MyPlan"} className="flex items-center gap-2 text-sm text-gray-300 hover:text-white">
-                        Saved
-                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-700 text-xs font-bold text-white">
-                            0
-                        </span>
-                    </Link>
+                <NavLinks />
+                <div className="navbar-end  gap-5">
+                    <PlanSavedLinks />
                 </div>
             </div>
         </nav>
