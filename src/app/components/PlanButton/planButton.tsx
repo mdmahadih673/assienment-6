@@ -32,7 +32,7 @@ const PlanButton = ({ workout }: { workout: IExercise }) => {
                 onClick={handleWorkout}
                 disabled={alreadyAdded}
                 aria-pressed={alreadyAdded}
-                className={`btn gap-2 rounded-md  font-bold ${alreadyAdded ? 'bg-gray-600 text-gray-200 cursor-not-allowed' : 'bg-transparent text-white hover:border-lime-500'}`}
+                className={`btn flex-1 gap-2 rounded-md font-bold sm:flex-none ${alreadyAdded ? 'bg-gray-600 text-gray-200 cursor-not-allowed' : 'bg-transparent text-white hover:border-lime-500'}`}
             >
                 {alreadyAdded ? 'Added to plan' : "Add to today's plan"}
             </button>

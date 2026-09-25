@@ -8,16 +8,14 @@ const PlanSavedLinks = () => {
     const { planWorkouts, savedWorkouts } = useContext(WorkoutContext);
 
     return (
-        <div className="flex items-center navbar-end gap-5">
-            <Link href="/my-plan/Plan">
-                Plan <span className="h-5 w-5 p-1.5 items-center justify-center rounded-full bg-lime-500 text-xs font-bold text-black">{planWorkouts.length}</span>
+        <div className="flex items-center gap-2 text-xs sm:gap-5 sm:text-sm">
+            <Link href="/MyPlan" className="flex items-center gap-1 whitespace-nowrap">
+                Plan <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-lime-500 px-1 text-xs font-bold text-black">{planWorkouts.length}</span>
             </Link>
 
-            <Link href="/my-plan/Saved">
-
-
+            <Link href="/MyPlan" className="flex items-center gap-1 whitespace-nowrap">
                 Saved
-                <span className=" h-5 w-5 p-1.5 gap-5.5 items-center justify-center rounded-full bg-neutral-700 text-xs ml-0.5 font-bold text-white">
+                <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-neutral-700 px-1 text-xs font-bold text-white">
                     {savedWorkouts.length}
                 </span>
             </Link>

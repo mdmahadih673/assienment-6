@@ -16,8 +16,8 @@ const getWorkout = async (id: string): Promise<IExercise> => {
 }
 
 const infoRow = (label: string, value: string | number) => (
-    <div className="flex items-center justify-between px-4 py-3 text-sm even:bg-white/3">
-        <span className="text-xs font-bold tracking-widest text-gray-400">
+    <div className="flex items-center justify-between px-4 py-3 text-sm ">
+        <span className="text-xs font-bold  text-gray-400">
             {label.toUpperCase()}
         </span>
         <span className="font-semibold text-white">{value}</span>
@@ -35,7 +35,7 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
     return (
         <div>
 
-            <div className='container mx-auto'>
+            <div className='container mx-auto px-4'>
 
                 <Link
                     href="/Workouts"
@@ -46,12 +46,18 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
             </div>
             <div className="container mx-auto grid grid-cols-1 gap-10 px-4 py-10 lg:grid-cols-2">
                 <div className="relative h-72 w-full overflow-hidden rounded-2xl lg:h-full">
-                    <Image
-                        src={workout.image}
-                        alt={workout.name}
-                        fill
-                        className="object-cover"
-                    />
+                    {workout.image ? (
+                        <Image
+                            src={workout.image}
+                            alt={workout.name}
+                            fill
+                            className="object-cover"
+                        />
+                    ) : (
+                        <div className="flex h-full items-center justify-center bg-neutral-900 text-sm text-gray-500">
+                            Image unavailable
+                        </div>
+                    )}
                 </div>
 
                 <div>
@@ -61,7 +67,7 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                     <p className="mt-2 text-sm text-gray-400">{workout.description}</p>
 
                     <div className="mt-4 flex flex-wrap gap-2">
-                        {workout.muscleGroups.map((group) => (
+                        {(workout.muscleGroups ?? []).map((group) => (
                             <span
                                 key={group}
                                 className="rounded-full bg-lime-400 px-3 py-1 text-xs font-bold uppercase text-black"
@@ -85,7 +91,7 @@ const WorkoutDetailsPage = async ({ params }: PageProps) => {
                         Instructions
                     </h2>
                     <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-gray-300">
-                        {workout.instructions.map((step, index) => (
+                        {(workout.instructions ?? []).map((step, index) => (
                             <li key={index}>{step}</li>
                         ))}
                     </ol>
