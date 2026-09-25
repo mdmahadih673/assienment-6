@@ -4,14 +4,6 @@ FitLog is a simple and responsive workout library web application built with Nex
 
 The main goal of this project is to practice Next.js, API integration, reusable components, responsive design, and state management.
 
-##  Live Website
-
-Live Link: [Add your live link here]
-
-##  GitHub Repository
-
-GitHub Link: https://github.com/mdmahadih673/assienment-6
-
 ---
 
 ##  Features
